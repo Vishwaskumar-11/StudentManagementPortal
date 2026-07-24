@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <h1>Add New Student</h1>
+<form action="/add-student" method="POST">
+
+<label>Student Name</label><br>
+<input
+    type="text"
+    name="student_name"
+    placeholder="Enter Student Name"
+    required
+    minlength="3"><br><br>
+
+<label>Roll Number</label><br>
+<input
+    type="text"
+    name="roll_number"
+    placeholder="Enter Roll Number"
+    required
+    minlength="3"><br><br>
+
+<label>Course</label><br>
+<input
+    type="text"
+    name="course"
+    placeholder="Enter Course"
+    required
+    minlength="3"><br><br>
+<label>Password</label>
+<input type="password" name="password" placeholder="Enter Password" required>
+
+    <button type="submit">Save Student</button>
+
+</form>
+
+</body>
+</html>
+{% with messages = get_flashed_messages(with_categories=true) %}
+
+    {% if messages %}
+
+        {% for category, message in messages %}
+
+            <div class="{{ category }}">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endwith %}

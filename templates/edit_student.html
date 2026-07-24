@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Student</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav>
+    <h2>🎓 Edit Student</h2>
+</nav>
+
+
+<div class="hero">
+
+    <h1>Edit Student Details</h1>
+
+
+    <form method="POST">
+
+        <label>Name</label>
+        <input 
+            type="text" 
+            name="name" 
+            value="{{ student[1] }}"
+            required
+        >
+
+
+        <label>Roll Number</label>
+        <input 
+            type="text" 
+            name="roll_number" 
+            value="{{ student[2] }}"
+            required
+        >
+
+
+        <label>Course</label>
+        <input 
+            type="text" 
+            name="course" 
+            value="{{ student[3] }}"
+            required
+        >
+
+
+        <br><br>
+
+        <button type="submit">
+            Update Student
+        </button>
+
+    </form>
+
+</div>
+</body>
+</html>
