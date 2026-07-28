@@ -12,50 +12,75 @@
 <body>
 
     <nav>
+
         <h2>🎓 Student Management Portal</h2>
+
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+
     </nav>
 
-    <div class="hero">
+    <div class="container">
 
-        <h1>Welcome to Student Management Portal</h1>
+        <div class="hero">
 
-        <p>
-            Manage student records securely and efficiently.<br>
-            Please select your login type to continue.
-        </p>
+            <h1>Welcome to Student Management Portal</h1>
+
+            <p>
+
+                A complete Student Management System developed using
+                <b>Python</b>, <b>Flask</b> and <b>SQLite Database</b>.
+
+                <br><br>
+
+                Manage student records, attendance, dashboards and reports
+                through a simple and secure web application.
+
+            </p>
+
+        </div>
 
         <div class="login-container">
 
-            <!-- Admin Login Card -->
+            <!-- Admin Card -->
+
             <div class="login-card">
 
-                <h2>👨‍💼 Admin Login</h2>
+                <h2>👨‍💼 Admin Panel</h2>
 
                 <p>
-                    ✔ Manage Students <br>
-                    ✔ Dashboard <br>
-                    ✔ Reports
+
+                    ✔ Admin Dashboard <br>
+                    ✔ Student Management <br>
+                    ✔ Attendance Management <br>
+                    ✔ Reports & Statistics
+
                 </p>
 
                 <a href="{{ url_for('login') }}">
-                    <button>Login as Admin</button>
+                    <button>Admin Login</button>
                 </a>
 
             </div>
 
-            <!-- Student Login Card -->
+            <!-- Student Card -->
+
             <div class="login-card">
 
-                <h2>👨‍🎓 Student Login</h2>
+                <h2>👨‍🎓 Student Panel</h2>
 
                 <p>
-                    ✔ View Profile <br>
-                    ✔ Attendance <br>
-                    ✔ Marks & Fees
+
+                    ✔ Student Dashboard <br>
+                    ✔ Attendance History <br>
+                    ✔ Personal Information <br>
+                    ✔ Secure Login
+
                 </p>
 
                 <a href="{{ url_for('student_login') }}">
-                    <button>Login as Student</button>
+                    <button>Student Login</button>
                 </a>
 
             </div>
@@ -63,6 +88,13 @@
         </div>
 
     </div>
+
+    <footer>
+
+        © 2026 Student Management Portal |
+        Developed using Python, Flask & SQLite
+
+    </footer>
 
 </body>
 

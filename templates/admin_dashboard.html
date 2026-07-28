@@ -2,60 +2,103 @@
 <html lang="en">
 
 <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Admin Dashboard</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
 </head>
 
 <body>
 
-<nav>
-    <h2>🎓 Admin Dashboard</h2>
-</nav>
+    <nav>
+        <h2>🎓 Admin Dashboard</h2>
+    </nav>
 
+    <div class="hero">
 
-<div class="hero">
+        <h1>Welcome Admin 👨‍💼</h1>
 
-    <h1>Welcome Admin 👨‍💼</h1>
-
-    <div class="login-container">
-
+        <div class="login-container">
 
         <div class="login-card">
+            <h2>👨‍🎓 Total Students</h2>
+            <h1>{{ total_students }}</h1>
+        </div>
 
-            <h2>Add Student</h2>
+        <div class="login-card">
+            <h2>✅ Present Today</h2>
+            <h1>{{ present_today }}</h1>
+        </div>
 
-            <p>
-                Add new student records
-            </p>
+        <div class="login-card">
+            <h2>❌ Absent Today</h2>
+            <h1>{{ absent_today }}</h1>
+        </div>
 
-            <a href="{{ url_for('add_student') }}">
-                <button>Add Student</button>
-            </a>
+        <div class="login-card">
+            <h2>📅 Attendance Records</h2>
+            <h1>{{ total_attendance }}</h1>
+        </div>
 
         </div>
 
+        <br><br>
+        <div class="login-container">
 
+            <div class="login-card">
 
-        <div class="login-card">
+                <h2>➕ Add Student</h2>
 
-            <h2>Student List</h2>
+                <p>Add a new student to the database.</p>
 
-            <p>
-                View all students
-            </p>
+                <a href="{{ url_for('add_student') }}">
+                    <button>Add Student</button>
+                </a>
 
-            <a href="{{ url_for('students') }}">
-                <button>View Students</button>
-            </a>
+            </div>
+
+            <div class="login-card">
+
+                <h2>👨‍🎓 Student List</h2>
+
+                <p>View and manage all students.</p>
+
+                <a href="{{ url_for('students') }}">
+                    <button>View Students</button>
+                </a>
+
+            </div>
+
+            <div class="login-card">
+
+                <h2>📅 Attendance</h2>
+
+                <p>Mark attendance for students.</p>
+                <a href="{{ url_for('attendance_report') }}">
+                    <button>📊 Attendance Report</button>
+                </a>
+
+            </div>
+
+            <div class="login-card">
+
+                <h2>🚪 Logout</h2>
+
+                <p>Exit from the admin dashboard.</p>
+
+                <a href="{{ url_for('home') }}">
+                    <button>Logout</button>
+                </a>
+
+            </div>
 
         </div>
-
 
     </div>
-
-</div>
-
 
 </body>
 

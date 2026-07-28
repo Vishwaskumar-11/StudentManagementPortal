@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mark Attendance</title>
+    <title>Attendance Management</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
@@ -22,40 +22,52 @@
 
         <h1>Mark Student Attendance</h1>
 
-        <form method="POST">
+        <div class="dashboard-card">
 
-            <label>Select Student</label>
+            <form method="POST">
 
-            <select name="student_id" required>
+                <label><b>Select Student</b></label>
+                <br><br>
 
-                {% for student in students %}
+                <select name="student_id" required>
+
+                    {% for student in students %}
 
                     <option value="{{ student[0] }}">
                         {{ student[1] }} ({{ student[2] }})
                     </option>
 
-                {% endfor %}
+                    {% endfor %}
 
-            </select>
+                </select>
 
-            <br><br>
+                <br><br>
 
-            <label>Status</label>
+                <label><b>Attendance Status</b></label>
+                <br><br>
 
-            <select name="status" required>
+                <select name="status" required>
 
-                <option value="Present">Present</option>
-                <option value="Absent">Absent</option>
+                    <option value="Present">✅ Present</option>
+                    <option value="Absent">❌ Absent</option>
 
-            </select>
+                </select>
 
-            <br><br>
+                <br><br>
 
-            <button type="submit">
-                Mark Attendance
-            </button>
+                <button type="submit">
+                    Save Attendance
+                </button>
 
-        </form>
+            </form>
+
+        </div>
+
+        <br>
+
+        <a href="{{ url_for('admin_dashboard') }}">
+            <button>⬅ Back to Dashboard</button>
+        </a>
 
     </div>
 

@@ -21,17 +21,7 @@
 
         <div class="dashboard-card">
 
-            <h2>Student Details</h2>
-
-            <p><b>Name:</b> {{ student[1] }}</p>
-            <p><b>Roll Number:</b> {{ student[2] }}</p>
-            <p><b>Course:</b> {{ student[3] }}</p>
-
-        </div>
-
-        <div class="dashboard-card">
-
-            <h2>Student Details</h2>
+            <h2>👨‍🎓 Student Details</h2>
 
             <p><b>Name:</b> {{ student[1] }}</p>
             <p><b>Roll Number:</b> {{ student[2] }}</p>
@@ -41,16 +31,42 @@
 
         <br>
 
-            <a href="{{ url_for('attendance') }}">
-                <button>📅 View Attendance</button>
-        </a>
+        <div class="dashboard-card">
+
+            <h2>📅 Attendance History</h2>
+
+            {% if attendance %}
+
+            <table border="1" cellpadding="10" cellspacing="0">
+
+                <tr>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+
+                {% for record in attendance %}
+
+                <tr>
+                    <td>{{ record[0] }}</td>
+                    <td>{{ record[1] }}</td>
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+            {% else %}
+
+            <p>No attendance records available.</p>
+
+            {% endif %}
+
+        </div>
 
         <br><br>
 
         <a href="{{ url_for('home') }}">
-    <button>Logout</button>
-        </a>
-
+            <button>🚪 Logout</button>
         </a>
 
     </div>

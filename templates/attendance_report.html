@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Attendance Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📊 Attendance Report</h1>
+
+    <table border="1">
+
+        <tr>
+            <th>Total Students</th>
+            <td>{{ total }}</td>
+        </tr>
+
+        <tr>
+            <th>Total Attendance Records</th>
+            <td>{{ attendance }}</td>
+        </tr>
+
+        <tr>
+            <th>Present Today</th>
+            <td>{{ present }}</td>
+        </tr>
+
+        <tr>
+            <th>Absent Today</th>
+            <td>{{ absent }}</td>
+        </tr>
+
+        <tr>
+            <th>Present %</th>
+            <td>{{ present_percent }}%</td>
+        </tr>
+
+        <tr>
+            <th>Absent %</th>
+            <td>{{ absent_percent }}%</td>
+        </tr>
+
+    </table>
+
+    <br>
+
+    <a href="{{ url_for('admin_dashboard') }}">
+        <button>⬅ Back to Dashboard</button>
+    </a>
+
+</div>
+
+</body>
+</html>

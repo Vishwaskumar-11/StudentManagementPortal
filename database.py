@@ -220,3 +220,103 @@ def mark_attendance(student_id, status):
     conn.close()
 
     print("Attendance Saved Successfully!")    
+
+def get_attendance_by_student(student_id):
+
+    conn = sqlite3.connect(DATABASE)
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT attendance_date, status
+        FROM attendance
+        WHERE student_id=?
+        ORDER BY attendance_date DESC
+    """, (student_id,))
+
+    attendance = cursor.fetchall()
+
+    conn.close()
+    return attendance
+def total_students():
+
+    conn = sqlite3.connect(DATABASE)
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT COUNT(*) FROM students")
+
+    total = cursor.fetchone()[0]
+
+    conn.close()
+
+    return total
+from datetime import date
+
+def present_today():
+
+    conn = sqlite3.connect(DATABASE)
+    cursor = conn.cursor()
+
+    today = date.today().strftime("%Y-%m-%d")
+
+    cursor.execute("""
+        SELECT COUNT(*)
+        FROM attendance
+        WHERE attendance_date=?
+        AND status='Present'
+    """, (today,))
+
+    total = cursor.fetchone()[0]
+
+    conn.close()
+
+    return total
+def absent_today():
+
+    conn = sqlite3.connect(DATABASE)
+    cursor = conn.cursor()
+
+    today = date.today().strftime("%Y-%m-%d")
+
+    cursor.execute("""
+        SELECT COUNT(*)
+        FROM attendance
+        WHERE attendance_date=?
+        AND status='Absent'
+    """, (today,))
+
+    total = cursor.fetchone()[0]
+
+    conn.close()
+
+    return total
+def absent_today():
+
+    conn = sqlite3.connect(DATABASE)
+    cursor = conn.cursor()
+
+    today = date.today().strftime("%Y-%m-%d")
+
+    cursor.execute("""
+        SELECT COUNT(*)
+        FROM attendance
+        WHERE attendance_date=?
+        AND status='Absent'
+    """, (today,))
+
+    total = cursor.fetchone()[0]
+
+    conn.close()
+
+    return total  
+def total_attendance_records():
+
+    conn = sqlite3.connect(DATABASE)
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT COUNT(*) FROM attendance")
+
+    total = cursor.fetchone()[0]
+
+    conn.close()
+
+    return total             
