@@ -270,25 +270,7 @@ def present_today():
     conn.close()
 
     return total
-def absent_today():
 
-    conn = sqlite3.connect(DATABASE)
-    cursor = conn.cursor()
-
-    today = date.today().strftime("%Y-%m-%d")
-
-    cursor.execute("""
-        SELECT COUNT(*)
-        FROM attendance
-        WHERE attendance_date=?
-        AND status='Absent'
-    """, (today,))
-
-    total = cursor.fetchone()[0]
-
-    conn.close()
-
-    return total
 def absent_today():
 
     conn = sqlite3.connect(DATABASE)
